@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="cam_info" type="pub_info.py" name="stereo_z30_main_info" />
+</launch>

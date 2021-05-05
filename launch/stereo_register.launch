@@ -1,0 +1,11 @@
+<launch>
+	<node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" />
+
+	<node pkg="nodelet" type="nodelet" name="register_nodelet" 
+			args="load depth_image_proc/register nodelet_manager" output="screen">
+		<remap from="depth/camera_info" to="/depth/camera_info/" />
+		<remap from="rgb/image_info" to="/rgb/camera_info" />
+		<remap from="depth/image_rect" to="/stereo_depth_perception/disparity_front_left_image/" />
+		<param name="queue_size" type="int" value="10" />
+	</node>
+</launch>

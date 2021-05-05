@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="tf_broadcast" type="broadcast.py" name="stereo_z30_main_tf" />
+</launch>
