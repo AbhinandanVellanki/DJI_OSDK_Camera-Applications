@@ -23,18 +23,6 @@ Eigen::Matrix4f transform = Eigen::Matrix4f::Identity();
 ros::Publisher transformed_cloud_pub;
 
 void callback(const sensor_msgs::PointCloud2::ConstPtr& raw_cloud){
-	transform(0,0) = -0.79350503;
-	transform(0,1) = -0.19572782;
-	transform(0,2) = -0.57622946;
-	transform(1,0) = 0.12830843;
-	transform(1,1) = -0.97939111;
-	transform(1,2) = 0.15598074;
-	transform(2,0) = -0.59488378;
-	transform(2,1) = 0.4983640;
-	transform(2,2) = 0.80226530;
-	transform(0,3) = 0.68003865;
-	transform(1,3) = -14.18108947;
-	transform(2,3) = 6.2781987;
 
 	pcl::PointCloud<pcl::PointXYZ> source_cloud;
 	//pcl_conversions::toPCL(raw_cloud, source_cloud);
@@ -55,6 +43,19 @@ void callback(const sensor_msgs::PointCloud2::ConstPtr& raw_cloud){
 int main(int argc, char** argv){
 	ros::init(argc, argv, "point_cloud_transformer");
 	ros::NodeHandle n;
+
+	transform(0,0) = -0.79350503;
+	transform(0,1) = -0.19572782;
+	transform(0,2) = -0.57622946;
+	transform(1,0) = 0.12830843;
+	transform(1,1) = -0.97939111;
+	transform(1,2) = 0.15598074;
+	transform(2,0) = -0.59488378;
+	transform(2,1) = 0.4983640;
+	transform(2,2) = 0.80226530;
+	transform(0,3) = 0.68003865;
+	transform(1,3) = -14.18108947;
+	transform(2,3) = 6.2781987;
 
 	//publisher for projected point cloud
 	transformed_cloud_pub = n.advertise<sensor_msgs::PointCloud2>("my_point_cloud/main_cam", 10);
