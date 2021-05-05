@@ -123,7 +123,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-catkin_install_python(PROGRAMS src/pub_camera_info.py src/test_subscriber.py src/change_image_size.py
+catkin_install_python(PROGRAMS src/pub_camera_info.py src/test_subscriber.py src/change_image_size.py src/calib_extrinsic.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
